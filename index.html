@@ -1,0 +1,1714 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#0A1628">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="BEST Consulting">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="BEST Consulting">
+    <meta name="msapplication-TileColor" content="#0A1628">
+    <meta name="msapplication-navbutton-color" content="#0A1628">
+    <meta name="description" content="Firma de consultoria multidisciplinaria especializada en inversiones en Venezuela. Estrategia, cumplimiento regulatorio, M&A y asesoria legal.">
+    <title>BEST Consulting | Su Socio Estrategico en Venezuela</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0A1628;
+            --navy-light: #0F1D32;
+            --navy-lighter: #162438;
+            --gold: #C9A84C;
+            --gold-light: #D4B76A;
+            --white: #FFFFFF;
+            --gray: #B0B8C4;
+            --gray-dark: #6B7280;
+            --terracotta: #D4654A;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--navy);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overscroll-behavior-y: none;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        /* ===== BOTON DE TRADUCCION ===== */
+        .translate-wrapper {
+            position: fixed;
+            top: 70px;
+            right: 10px;
+            z-index: 9998;
+            background: var(--navy-light);
+            border: 1px solid rgba(201, 168, 76, 0.3);
+            border-radius: 4px;
+            padding: 4px 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.75rem;
+            transition: all 0.3s ease;
+        }
+        .translate-wrapper:hover {
+            border-color: var(--gold);
+        }
+        .translate-wrapper select {
+            background: var(--navy);
+            color: var(--white);
+            border: 1px solid rgba(201, 168, 76, 0.3);
+            padding: 4px 8px;
+            font-size: 0.7rem;
+            border-radius: 3px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            -webkit-appearance: none;
+            appearance: none;
+            padding-right: 20px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23C9A84C' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 4px center;
+        }
+        .translate-wrapper select:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+        .translate-label {
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        @media (max-width: 768px) {
+            .translate-wrapper {
+                top: 60px;
+                right: 5px;
+                padding: 3px 6px;
+            }
+            .translate-wrapper select {
+                font-size: 0.65rem;
+                padding: 3px 6px;
+                padding-right: 18px;
+            }
+            .translate-label {
+                display: none;
+            }
+        }
+
+        /* GOOGLE TRANSLATE OVERRIDE */
+        .skiptranslate {
+            display: none !important;
+        }
+        body {
+            top: 0 !important;
+        }
+        #goog-gt-tt, .goog-te-balloon-frame, #goog-gt-vt, .goog-te-menu-frame {
+            display: none !important;
+        }
+        .goog-text-highlight {
+            background-color: transparent !important;
+            box-shadow: none !important;
+        }
+
+        /* Splash Screen */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--navy);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        #splash-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .splash-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--white);
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+        }
+        .splash-logo span {
+            color: var(--gold);
+        }
+        .splash-line {
+            width: 80px;
+            height: 3px;
+            background: var(--gold);
+            border-radius: 2px;
+            margin-bottom: 2rem;
+            animation: splashExpand 1s ease forwards;
+        }
+        @keyframes splashExpand {
+            from { width: 0; }
+            to { width: 80px; }
+        }
+        .splash-subtitle {
+            color: var(--gray);
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .splash-loader {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(201, 168, 76, 0.2);
+            border-top-color: var(--gold);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin-top: 2rem;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Install Banner */
+        #install-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--navy-light);
+            border-top: 1px solid rgba(201, 168, 76, 0.3);
+            padding: 1rem 1.5rem;
+            display: none;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 9999;
+            animation: slideUp 0.3s ease;
+        }
+        #install-banner.show {
+            display: flex;
+        }
+        @keyframes slideUp {
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
+        }
+        .install-text {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        .install-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gold);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        .install-info h4 {
+            font-size: 0.9rem;
+            color: var(--white);
+        }
+        .install-info p {
+            font-size: 0.75rem;
+            color: var(--gray);
+        }
+        .install-btn {
+            background: var(--gold);
+            color: var(--navy);
+            border: none;
+            padding: 0.6rem 1.2rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.8rem;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        .install-close {
+            background: none;
+            border: none;
+            color: var(--gray);
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-left: 0.5rem;
+        }
+
+        /* Navegacion */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(10, 22, 40, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+            transition: all 0.3s ease;
+        }
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--white);
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+        .logo span {
+            color: var(--gold);
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        .mobile-menu span {
+            width: 22px;
+            height: 2px;
+            background: var(--gold);
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 5% 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(201, 168, 76, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(201, 168, 76, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            animation: fadeInUp 1s ease;
+        }
+        .hero h1 {
+            font-size: clamp(2rem, 6vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            letter-spacing: 3px;
+        }
+        .hero-line {
+            width: 100px;
+            height: 3px;
+            background: var(--gold);
+            margin: 1.2rem auto;
+            border-radius: 2px;
+        }
+        .hero p {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            color: var(--gray);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+        .btn-primary {
+            display: inline-block;
+            padding: 0.9rem 2rem;
+            background: transparent;
+            color: var(--gold);
+            border: 2px solid var(--gold);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            text-transform: uppercase;
+            border-radius: 4px;
+            -webkit-appearance: none;
+        }
+        .btn-primary:hover, .btn-primary:active {
+            background: var(--gold);
+            color: var(--navy);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(201, 168, 76, 0.3);
+        }
+        .btn-secondary {
+            display: inline-block;
+            padding: 0.9rem 2rem;
+            background: var(--gold);
+            color: var(--navy);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            text-transform: uppercase;
+            border: 2px solid var(--gold);
+            border-radius: 4px;
+            margin-left: 0.5rem;
+            -webkit-appearance: none;
+        }
+        .btn-secondary:hover, .btn-secondary:active {
+            background: transparent;
+            color: var(--gold);
+            transform: translateY(-2px);
+        }
+        .hero-contact {
+            margin-top: 2.5rem;
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+        .hero-contact a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .hero-contact a:hover {
+            color: var(--gold);
+        }
+
+        /* Sections General */
+        section {
+            padding: 4rem 5%;
+            position: relative;
+        }
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+        .section-header h2 {
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        .section-header p {
+            color: var(--gray);
+            font-size: 1rem;
+        }
+        .gold-line-center {
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+            margin: 1.2rem auto;
+            border-radius: 2px;
+        }
+
+        /* Problema Section */
+        .problema {
+            background: var(--navy-light);
+        }
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .card {
+            background: var(--navy);
+            border: 1px solid rgba(201, 168, 76, 0.3);
+            padding: 1.8rem 1.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        .card:hover::before, .card:active::before {
+            transform: scaleX(1);
+        }
+        .card:hover, .card:active {
+            border-color: var(--gold);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        .card-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--gold);
+            opacity: 0.3;
+            margin-bottom: 0.3rem;
+        }
+        .card h3 {
+            font-size: 1rem;
+            color: var(--gold);
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .card p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        .quote {
+            text-align: center;
+            margin-top: 3rem;
+            font-style: italic;
+            font-size: 1rem;
+            color: var(--gray);
+            padding: 0 1rem;
+        }
+        .quote span {
+            color: var(--gold);
+        }
+
+        /* Oportunidad Section */
+        .oportunidad {
+            text-align: center;
+            background: var(--navy);
+        }
+        .big-number {
+            font-size: clamp(3.5rem, 12vw, 6rem);
+            font-weight: 800;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 40px rgba(201, 168, 76, 0.2);
+        }
+        .oportunidad-sub {
+            font-size: 1.1rem;
+            color: var(--white);
+            margin-bottom: 2rem;
+            padding: 0 1rem;
+        }
+        .mini-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .mini-card {
+            background: var(--navy-light);
+            border: 1px solid rgba(201, 168, 76, 0.2);
+            padding: 1.2rem;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+        }
+        .mini-card:hover, .mini-card:active {
+            border-color: var(--gold);
+            background: var(--navy-lighter);
+        }
+        .mini-card h4 {
+            font-size: 0.85rem;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.4;
+        }
+
+        /* Nosotros Section */
+        .nosotros {
+            background: var(--navy-light);
+        }
+        .nosotros-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        .nosotros-col h3 {
+            color: var(--gold);
+            font-size: 1rem;
+            margin-bottom: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .nosotros-col ul {
+            list-style: none;
+        }
+        .nosotros-col li {
+            padding: 0.7rem 0;
+            color: var(--gray);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            padding-left: 1.3rem;
+            font-size: 0.9rem;
+        }
+        .nosotros-col li::before {
+            content: '>';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-size: 1.1rem;
+        }
+        .nosotros-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+        .nosotros-intro h2 {
+            font-size: clamp(1.4rem, 4vw, 2rem);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+        .nosotros-intro .highlight {
+            color: var(--gold);
+        }
+
+        /* Servicios Section */
+        .servicios {
+            background: var(--navy);
+        }
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .servicio-card {
+            background: var(--navy-light);
+            border: 1px solid rgba(201, 168, 76, 0.15);
+            padding: 1.8rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+        .servicio-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        .servicio-card:hover::after, .servicio-card:active::after {
+            transform: scaleX(1);
+        }
+        .servicio-card:hover, .servicio-card:active {
+            border-color: rgba(201, 168, 76, 0.4);
+            transform: translateY(-2px);
+        }
+        .servicio-icon {
+            width: 45px;
+            height: 45px;
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+            color: var(--gold);
+        }
+        .servicio-card h3 {
+            font-size: 1rem;
+            margin-bottom: 0.8rem;
+            color: var(--white);
+        }
+        .servicio-card p {
+            color: var(--gray);
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        /* Proceso Section */
+        .proceso {
+            background: var(--navy-light);
+        }
+        .steps {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            flex-wrap: wrap;
+        }
+        .step {
+            text-align: center;
+            flex: 1;
+            min-width: 160px;
+            position: relative;
+        }
+        .step-circle {
+            width: 65px;
+            height: 65px;
+            border: 3px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--gold);
+            background: var(--navy);
+            position: relative;
+            z-index: 2;
+        }
+        .step h3 {
+            font-size: 1rem;
+            margin-bottom: 0.4rem;
+        }
+        .step p {
+            color: var(--gray);
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+        .proceso-note {
+            text-align: center;
+            margin-top: 3rem;
+            font-style: italic;
+            color: var(--gold);
+            font-size: 1rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: var(--navy);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(201, 168, 76, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .cta h2 {
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 2;
+            line-height: 1.3;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 0.8rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ===== SECCION RECURSOS ===== */
+        .recursos {
+            background: var(--navy-light);
+        }
+        .noticias-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .noticia {
+            background: var(--navy);
+            border: 1px solid rgba(201, 168, 76, 0.2);
+            border-radius: 6px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .noticia:hover {
+            border-color: var(--gold);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+        .noticia-imagen {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+        .noticia-imagen-placeholder {
+            width: 100%;
+            height: 180px;
+            background: var(--navy-lighter);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--gold);
+            opacity: 0.5;
+        }
+        .noticia-contenido {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .noticia-fecha {
+            font-size: 0.7rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.6rem;
+        }
+        .noticia-titulo {
+            font-size: 1.05rem;
+            color: var(--white);
+            margin-bottom: 0.8rem;
+            line-height: 1.3;
+        }
+        .noticia-resumen {
+            color: var(--gray);
+            font-size: 0.85rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            flex: 1;
+        }
+        .noticia-resumen a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        .noticia-resumen a:hover {
+            color: var(--gold-light);
+        }
+        .noticia-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .tag {
+            background: rgba(201, 168, 76, 0.1);
+            color: var(--gold);
+            padding: 0.25rem 0.7rem;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 3px;
+            border: 1px solid rgba(201, 168, 76, 0.2);
+        }
+
+        /* Contacto Section */
+        .contacto {
+            background: var(--navy-light);
+            padding-bottom: 3rem;
+        }
+        .contacto-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .contacto-info h3 {
+            color: var(--gold);
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
+        }
+        .contacto-item {
+            margin-bottom: 1.2rem;
+        }
+        .contacto-item strong {
+            display: block;
+            color: var(--white);
+            margin-bottom: 0.2rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .contacto-item a, .contacto-item span {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.9rem;
+        }
+        .contacto-item a:hover {
+            color: var(--gold);
+        }
+        .contacto-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        .form-group label {
+            font-size: 0.75rem;
+            color: var(--gray);
+            margin-bottom: 0.4rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            padding: 0.8rem;
+            background: var(--navy);
+            border: 1px solid rgba(201, 168, 76, 0.3);
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+            -webkit-appearance: none;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.1);
+        }
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        .form-group select {
+            cursor: pointer;
+        }
+        .form-group select option {
+            background: var(--navy);
+            color: var(--white);
+        }
+        .btn-submit {
+            padding: 0.9rem 2rem;
+            background: var(--gold);
+            color: var(--navy);
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            border-radius: 4px;
+            -webkit-appearance: none;
+        }
+        .btn-submit:hover, .btn-submit:active {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(201, 168, 76, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy);
+            border-top: 1px solid rgba(201, 168, 76, 0.2);
+            padding: 1.5rem 5%;
+            text-align: center;
+            color: var(--gray);
+            font-size: 0.8rem;
+        }
+        footer .logo {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            display: inline-block;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Pull to refresh indicator */
+        .ptr-indicator {
+            position: fixed;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(201, 168, 76, 0.2);
+            border-top-color: var(--gold);
+            border-radius: 50%;
+            z-index: 9998;
+            transition: top 0.3s ease;
+            animation: spin 0.8s linear infinite;
+            opacity: 0;
+        }
+        .ptr-indicator.visible {
+            top: 20px;
+            opacity: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--navy);
+                flex-direction: column;
+                padding: 1.5rem;
+                gap: 1.2rem;
+                border-bottom: 1px solid var(--gold);
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .mobile-menu {
+                display: flex;
+            }
+            .hero {
+                padding: 70px 5% 1.5rem;
+                min-height: 90vh;
+                min-height: 90dvh;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .btn-secondary {
+                margin-left: 0;
+                margin-top: 0.5rem;
+            }
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                max-width: 280px;
+                text-align: center;
+            }
+            .nosotros-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .contacto-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .steps {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            section {
+                padding: 3rem 5%;
+            }
+            .cards-grid, .servicios-grid, .noticias-grid {
+                grid-template-columns: 1fr;
+            }
+            .noticia-imagen, .noticia-imagen-placeholder {
+                height: 150px;
+            }
+        }
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.6rem;
+                letter-spacing: 1px;
+            }
+            .big-number {
+                font-size: 3rem;
+            }
+            .card, .servicio-card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--navy);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gold-light);
+        }
+
+        /* Safe area for notched devices */
+        @supports (padding-top: env(safe-area-inset-top)) {
+            nav {
+                padding-top: calc(1rem + env(safe-area-inset-top));
+            }
+            .hero {
+                padding-top: calc(80px + env(safe-area-inset-top));
+            }
+            footer {
+                padding-bottom: calc(1.5rem + env(safe-area-inset-bottom));
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Splash Screen -->
+    <div id="splash-screen">
+        <div class="splash-logo">BEST <span>CONSULTING</span></div>
+        <div class="splash-line"></div>
+        <div class="splash-subtitle">Su socio estrategico</div>
+        <div class="splash-loader"></div>
+    </div>
+
+    <!-- Install Banner -->
+    <div id="install-banner">
+        <div class="install-text">
+            <div class="install-icon">📱</div>
+            <div class="install-info">
+                <h4>Instalar BEST Consulting</h4>
+                <p>Acceso rapido desde tu pantalla de inicio</p>
+            </div>
+        </div>
+        <div style="display: flex; align-items: center;">
+            <button class="install-btn" id="install-btn">Instalar</button>
+            <button class="install-close" id="install-close">✕</button>
+        </div>
+    </div>
+
+    <!-- Pull to Refresh Indicator -->
+    <div class="ptr-indicator" id="ptr-indicator"></div>
+
+    <!-- Navegacion -->
+    <nav id="navbar">
+        <a href="#" class="logo">BEST <span>CONSULTING</span></a>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#oportunidad">Oportunidad</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#proceso">Proceso</a></li>
+            <li><a href="#recursos">Recursos</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+        <div class="mobile-menu" id="mobile-menu" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- BOTON DE TRADUCCION -->
+    <div class="translate-wrapper">
+        <span class="translate-label">🌐</span>
+        <select id="language-select" onchange="changeLanguage(this.value)">
+            <option value="es">Espanol</option>
+            <option value="en">English</option>
+            <option value="pt">Portugues</option>
+            <option value="fr">Francais</option>
+            <option value="de">Deutsch</option>
+            <option value="it">Italiano</option>
+            <option value="zh-CN">中文</option>
+            <option value="ja">日本語</option>
+            <option value="ar">العربية</option>
+            <option value="ru">Русский</option>
+        </select>
+    </div>
+
+    <!-- Google Translate Element (oculto) -->
+    <div id="google_translate_element" style="display: none;"></div>
+
+    <!-- Hero -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>BEST CONSULTING</h1>
+            <div class="hero-line"></div>
+            <p>Su socio estrategico para invertir en Venezuela</p>
+            <div>
+                <a href="#contacto" class="btn-primary">Agendar Consulta</a>
+                <a href="#servicios" class="btn-secondary">Conocer Servicios</a>
+            </div>
+            <div class="hero-contact">
+                <a href="mailto:ccmcbest@gmail.com">ccmcbest@gmail.com</a> · 
+                <a href="https://wa.me/584123222221">+58 (412) 322-2221</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problema -->
+    <section class="problema" id="problema">
+        <div class="section-header fade-in">
+            <h2>Invertir en Venezuela sin un socio local<br>es como navegar sin mapa en una tormenta.</h2>
+            <div class="gold-line-center"></div>
+        </div>
+        <div class="cards-grid">
+            <div class="card fade-in">
+                <div class="card-number">01</div>
+                <h3>Barreras Regulatorias</h3>
+                <p>Que cambian mensualmente sin previo aviso, creando un laberinto legal dificil de navegar sin experiencia local.</p>
+            </div>
+            <div class="card fade-in">
+                <div class="card-number">02</div>
+                <h3>Informacion Contradictoria</h3>
+                <p>Sobre el mercado real y sus oportunidades. Lo que leen en los medios rara vez refleja la realidad operativa.</p>
+            </div>
+            <div class="card fade-in">
+                <div class="card-number">03</div>
+                <h3>Riesgo Operativo</h3>
+                <p>Que puede costar millones sin la debida proteccion. La falta de due diligence local es la causa #1 de perdidas.</p>
+            </div>
+        </div>
+        <p class="quote fade-in">"Las barreras mas altas protegen los rendimientos mas atractivos — <span>si sabe como atravesarlas.</span>"</p>
+    </section>
+
+    <!-- Oportunidad -->
+    <section class="oportunidad" id="oportunidad">
+        <div class="section-header fade-in">
+            <div class="big-number">12% — 18%</div>
+            <p class="oportunidad-sub">Rendimientos potenciales en sectores estrategicos de Venezuela</p>
+            <div class="gold-line-center"></div>
+        </div>
+        <div class="mini-cards">
+            <div class="mini-card fade-in">
+                <h4>Ventana de Primera Entrada</h4>
+            </div>
+            <div class="mini-card fade-in">
+                <h4>Filtro Natural para Preparados</h4>
+            </div>
+            <div class="mini-card fade-in">
+                <h4>Mayor Potencial de Retorno en LATAM</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nosotros -->
+    <section class="nosotros" id="nosotros">
+        <div class="nosotros-intro fade-in">
+            <h2>No somos una firma mas.<br>Somos el unico socio que integra <span class="highlight">estrategia, cumplimiento, M&A, asesoria legal y tecnologia</span> en una sola oferta de valor.</h2>
+            <div class="gold-line-center"></div>
+        </div>
+        <div class="nosotros-content">
+            <div class="nosotros-col fade-in">
+                <h3>Lo que somos</h3>
+                <ul>
+                    <li>Firma de consultoria multidisciplinaria</li>
+                    <li>Especializados en el mercado venezolano</li>
+                    <li>Equipo con experiencia real en el terreno</li>
+                    <li>Enfoque integral: estrategia + regulatorio + gobernanza + tech</li>
+                </ul>
+            </div>
+            <div class="nosotros-col fade-in">
+                <h3>Para quien trabajamos</h3>
+                <ul>
+                    <li>Inversionistas extranjeros que buscan entrada segura</li>
+                    <li>Empresas nacionales que necesitan escalar con cumplimiento</li>
+                    <li>Fondos de inversion evaluando oportunidades en LATAM</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section class="servicios" id="servicios">
+        <div class="section-header fade-in">
+            <h2>Cinco lineas de servicio.</h2>
+            <p>Una promesa: <span style="color: var(--gold);">cero sorpresas.</span></p>
+            <div class="gold-line-center"></div>
+        </div>
+        <div class="servicios-grid">
+            <div class="servicio-card fade-in">
+                <div class="servicio-icon">🔍</div>
+                <h3>Due Diligence</h3>
+                <p>Verificacion exhaustiva de informacion financiera, legal y operativa. Conozca el verdadero estado de un negocio antes de comprometer capital.</p>
+            </div>
+            <div class="servicio-card fade-in">
+                <div class="servicio-icon">⚖️</div>
+                <h3>Asesoria Legal Especializada</h3>
+                <p>Navegacion proactiva del marco regulatorio en constante cambio. Anticipamos cambios normativos para proteger su inversion.</p>
+            </div>
+            <div class="servicio-card fade-in">
+                <div class="servicio-icon">📊</div>
+                <h3>Inteligencia de Mercado</h3>
+                <p>Informes personalizados para entender la economia real de Venezuela. Datos que no encontrara en los reportes internacionales.</p>
+            </div>
+            <div class="servicio-card fade-in">
+                <div class="servicio-icon">🏗️</div>
+                <h3>Constitucion de Negocios</h3>
+                <p>Acompanamiento directo desde la idea hasta la operacion. Constituya su empresa cumpliendo cada requisito desde el dia uno.</p>
+            </div>
+            <div class="servicio-card fade-in">
+                <div class="servicio-icon">💼</div>
+                <h3>Administracion de Inversiones</h3>
+                <p>Gestion integral de su portafolio con reportes transparentes. Supervision continua y alertas tempranas de riesgo.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proceso -->
+    <section class="proceso" id="proceso">
+        <div class="section-header fade-in">
+            <h2>De la duda a la inversion en tres pasos.</h2>
+            <div class="gold-line-center"></div>
+        </div>
+        <div class="steps">
+            <div class="step fade-in">
+                <div class="step-circle">01</div>
+                <h3>Diagnostico</h3>
+                <p>Gratuito y<br>sin compromiso.</p>
+            </div>
+            <div class="step fade-in">
+                <div class="step-circle">02</div>
+                <h3>Estrategia</h3>
+                <p>Diseno del camino<br>seguro personalizado.</p>
+            </div>
+            <div class="step fade-in">
+                <div class="step-circle">03</div>
+                <h3>Ejecucion</h3>
+                <p>Implementacion con<br>acompanamiento continuo.</p>
+            </div>
+        </div>
+        <p class="proceso-note fade-in">Cada proyecto comienza con un diagnostico inicial sin costo.</p>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="cta">
+        <div class="section-header fade-in">
+            <h2>El mercado venezolano no espera.<br>Y usted no deberia hacerlo <span style="color: var(--gold);">sin el socio correcto.</span></h2>
+            <div class="gold-line-center"></div>
+            <p style="color: var(--gray); margin-top: 1rem;">Venezuela esta en un momento de reconfiguracion economica donde los primeros en moverse con inteligencia capturaran posiciones dominantes.</p>
+        </div>
+        <div class="cta-buttons fade-in">
+            <a href="#contacto" class="btn-primary">Agende una Consulta Estrategica</a>
+            <a href="#contacto" class="btn-secondary">Solicitar Informe de Coyuntura</a>
+        </div>
+    </section>
+
+    <!-- RECURSOS -->
+    <section class="recursos" id="recursos">
+        <div class="section-header fade-in">
+            <h2>Recursos & Noticias</h2>
+            <p>Actualizaciones del mercado, analisis regulatorio y oportunidades de inversion</p>
+            <div class="gold-line-center"></div>
+        </div>
+        <div class="noticias-grid">
+
+            <!-- NOTICIA 1 - CON IMAGEN (ejemplo con placeholder) -->
+<<article class="noticia fade-in" id="noticia-1">
+    <div class="noticia-imagen-placeholder">📰</div>
+    <div class="noticia-contenido">
+        <div class="noticia-fecha">17 de junio de 2026</div>
+        <h3 class="noticia-titulo">Nuevas regulaciones para inversiones extranjeras</h3>
+        
+        <!-- RESUMEN CORTO (siempre visible) -->
+        <p class="noticia-resumen" id="resumen-1">
+            El gobierno anunció modificaciones al marco regulatorio que facilitan la entrada de capital extranjero...
+            <a href="#noticia-1" onclick="mostrarArticulo('1')">Leer más →</a>
+        </p>
+        
+        <!-- ARTÍCULO COMPLETO (oculto inicialmente) -->
+        <div class="articulo-completo" id="articulo-1" style="display: none;">
+            <p>
+                El gobierno de Venezuela publicó en Gaceta Oficial el Decreto N° 4.521 que modifica el marco regulatorio para inversiones extranjeras directas. Las principales cambios incluyen:
+            </p>
+            <ul style="margin: 1rem 0; padding-left: 1.5rem; color: var(--gray);">
+                <li>Eliminación del requisito de socio local minoritario en sectores estratégicos</li>
+                <li>Reducción de aranceles de importación para maquinaria industrial del 15% al 5%</li>
+                <li>Permiso de repatriación de utilidades hasta el 100% del capital invertido</li>
+                <li>Exención de impuesto a la renta por los primeros 3 años de operación</li>
+            </ul>
+            <p>
+                Estas medidas buscan atraer $2.500 millones en IED durante el próximo trimestre, según proyecciones del Banco Central de Venezuela.
+            </p>
+            <p style="margin-top: 1rem;">
+                <a href="#" onclick="ocultarArticulo('1')">← Volver al resumen</a>
+            </p>
+        </div>
+        
+        <div class="noticia-tags">
+            <span class="tag">Regulación</span>
+            <span class="tag">Inversiones</span>
+        </div>
+    </div>
+</article>
+
+            <!-- NOTICIA 2 - CON IMAGEN (ejemplo con placeholder) -->
+            <article class="noticia fade-in">
+                <div class="noticia-imagen-placeholder">📊</div>
+                <div class="noticia-contenido">
+                    <div class="noticia-fecha">10 de junio de 2026</div>
+                    <h3 class="noticia-titulo">Informe de Coyuntura: Sectores con mayor potencial Q3 2026</h3>
+                    <p class="noticia-resumen">
+                        Nuestro analisis trimestral identifica oportunidades en energia, agroindustria y tecnologia. Rendimientos proyectados entre 12% y 18% anual.
+                        <a href="#" target="_blank">Descargar informe →</a>
+                    </p>
+                    <div class="noticia-tags">
+                        <span class="tag">Informe</span>
+                        <span class="tag">Macroeconomia</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- NOTICIA 3 - CON IMAGEN (ejemplo con placeholder) -->
+            <article class="noticia fade-in">
+                <div class="noticia-imagen-placeholder">⚖️</div>
+                <div class="noticia-contenido">
+                    <div class="noticia-fecha">3 de junio de 2026</div>
+                    <h3 class="noticia-titulo">Guia de cumplimiento tributario para empresas internacionales</h3>
+                    <p class="noticia-resumen">
+                        Actualizamos nuestra guia practica sobre obligaciones fiscales para empresas con operaciones en Venezuela. Incluye calendario de vencimientos y checklist de documentos.
+                        <a href="#" target="_blank">Ver guia →</a>
+                    </p>
+                    <div class="noticia-tags">
+                        <span class="tag">Legal</span>
+                        <span class="tag">Cumplimiento</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ====== AGREGAR NUEVAS NOTICIAS AQUI ABAJO ====== -->
+            <!--
+                COPIA ESTE BLOQUE Y PEGALO JUSTO ARRIBA DE ESTE COMENTARIO
+                PARA AGREGAR UNA NUEVA NOTICIA:
+
+            <article class="noticia fade-in">
+                <img src="URL_DE_TU_IMAGEN" alt="Descripcion" class="noticia-imagen">
+                <div class="noticia-contenido">
+                    <div class="noticia-fecha">DD de mes de AAAA</div>
+                    <h3 class="noticia-titulo">Titulo de tu noticia</h3>
+                    <p class="noticia-resumen">
+                        Resumen de la noticia aqui...
+                        <a href="URL" target="_blank">Leer mas →</a>
+                    </p>
+                    <div class="noticia-tags">
+                        <span class="tag">Tag1</span>
+                        <span class="tag">Tag2</span>
+                    </div>
+                </div>
+            </article>
+            -->
+
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="contacto" id="contacto">
+        <div class="section-header fade-in">
+            <h2>Hablemos de su proxima inversion.</h2>
+            <div class="gold-line-center"></div>
+        </div>
+        <div class="contacto-grid">
+            <div class="contacto-info fade-in">
+                <h3>BEST CONSULTING, S.C.</h3>
+                <div class="contacto-item">
+                    <strong>Email</strong>
+                    <a href="mailto:ccmcbest@gmail.com">ccmcbest@gmail.com</a>
+                </div>
+                <div class="contacto-item">
+                    <strong>Telefono / WhatsApp</strong>
+                    <a href="https://wa.me/584123222221">+58 (412) 322-2221</a>
+                </div>
+                <div class="contacto-item">
+                    <strong>Horario</strong>
+                    <span>Lunes a Viernes, 8:00 AM - 6:00 PM (VET)</span>
+                </div>
+                <div class="contacto-item">
+                    <strong>Primera consulta</strong>
+                    <span style="color: var(--gold);">Sin costo · Sin compromiso</span>
+                </div>
+            </div>
+            <form class="contacto-form fade-in" action="https://formspree.io/f/mykaonzw" method="POST">
+                <div class="form-group">
+                    <label for="nombre">Nombre completo</label>
+                    <input type="text" id="nombre" name="nombre" required placeholder="Su nombre">
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo electronico</label>
+                    <input type="email" id="email" name="email" required placeholder="su@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Telefono / WhatsApp</label>
+                    <input type="tel" id="telefono" name="telefono" placeholder="+58 (412) 000-0000">
+                </div>
+                <div class="form-group">
+                    <label for="interes">¿Que le interesa?</label>
+                    <select id="interes" name="interes" required>
+                        <option value="">Seleccione una opcion</option>
+                        <option value="consulta">Consulta estrategica gratuita</option>
+                        <option value="informe">Solicitar Informe de Coyuntura</option>
+                        <option value="due-diligence">Due Diligence</option>
+                        <option value="asesoria">Asesoria Legal</option>
+                        <option value="constitucion">Constitucion de Negocio</option>
+                        <option value="otro">Otro / No estoy seguro</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mensaje">Cuentenos sobre su objetivo</label>
+                    <textarea id="mensaje" name="mensaje" placeholder="¿En que sector esta interesado? ¿Cual es su horizonte de inversion?"></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Enviar Mensaje</button>
+                <p style="font-size: 0.75rem; color: var(--gray); margin-top: 0.5rem;">Responderemos en menos de 24 horas.</p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="logo">BEST <span>CONSULTING</span></div>
+        <p>© 2026 BEST CONSULTING, S.C. Todos los derechos reservados.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.7rem;">Su socio estrategico para invertir en Venezuela.</p>
+    </footer>
+
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
+        // Google Translate
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'es',
+                includedLanguages: 'es,en,pt,fr,de,it,zh-CN,ja,ar,ru',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+
+        function changeLanguage(lang) {
+            if (lang === 'es') {
+                // Volver al español (recargar pagina)
+                location.reload();
+                return;
+            }
+            // Disparar el widget de Google Translate
+            var select = document.querySelector('.goog-te-combo');
+            if (select) {
+                select.value = lang;
+                select.dispatchEvent(new Event('change'));
+            } else {
+                // Si el widget no esta listo, esperar e intentar de nuevo
+                setTimeout(function() {
+                    changeLanguage(lang);
+                }, 500);
+            }
+        }
+
+        // PWA Service Worker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js')
+                .then(reg => console.log('Service Worker registrado:', reg))
+                .catch(err => console.log('Error registrando SW:', err));
+        }
+
+        // Splash Screen
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('splash-screen').classList.add('hidden');
+            }, 1500);
+        });
+
+        // Install Banner
+        let deferredPrompt;
+        const installBanner = document.getElementById('install-banner');
+        const installBtn = document.getElementById('install-btn');
+        const installClose = document.getElementById('install-close');
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            if (!window.matchMedia('(display-mode: standalone)').matches) {
+                installBanner.classList.add('show');
+            }
+        });
+
+        installBtn.addEventListener('click', async () => {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                if (outcome === 'accepted') {
+                    installBanner.classList.remove('show');
+                }
+                deferredPrompt = null;
+            }
+        });
+
+        installClose.addEventListener('click', () => {
+            installBanner.classList.remove('show');
+            localStorage.setItem('installBannerClosed', 'true');
+        });
+
+        if (localStorage.getItem('installBannerClosed') === 'true') {
+            installBanner.style.display = 'none';
+        }
+
+        // Animacion al scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(10, 22, 40, 0.98)';
+                navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.3)';
+            } else {
+                navbar.style.background = 'rgba(10, 22, 40, 0.95)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+
+        // Mobile menu
+        function toggleMenu() {
+            const navLinks = document.getElementById('nav-links');
+            navLinks.classList.toggle('active');
+        }
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('nav-links').classList.remove('active');
+            });
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Pull to refresh
+        let touchStartY = 0;
+        let touchEndY = 0;
+        const ptrIndicator = document.getElementById('ptr-indicator');
+        document.addEventListener('touchstart', (e) => {
+            touchStartY = e.touches[0].clientY;
+        }, { passive: true });
+        document.addEventListener('touchmove', (e) => {
+            touchEndY = e.touches[0].clientY;
+            const diff = touchEndY - touchStartY;
+            if (window.scrollY === 0 && diff > 80) {
+                ptrIndicator.classList.add('visible');
+            }
+        }, { passive: true });
+        document.addEventListener('touchend', () => {
+            const diff = touchEndY - touchStartY;
+            if (window.scrollY === 0 && diff > 120) {
+                location.reload();
+            }
+            ptrIndicator.classList.remove('visible');
+        });
+
+        // Offline detection
+        window.addEventListener('offline', () => {
+            const toast = document.createElement('div');
+            toast.style.cssText = 'position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:var(--terracotta);color:white;padding:0.8rem 1.5rem;border-radius:4px;font-size:0.85rem;z-index:10001;animation:fadeInUp 0.3s ease;';
+            toast.textContent = 'Sin conexion. Algunas funciones pueden no estar disponibles.';
+            document.body.appendChild(toast);
+            setTimeout(() => { toast.remove(); }, 3000);
+        });
+    </script>
+</body>
+</html>

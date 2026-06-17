@@ -1426,6 +1426,19 @@
     </div>
 </article>
 
+<!-- JAVASCRIPT PARA MOSTRAR/OCULTAR ARTÍCULOS -->
+<script>
+function mostrarArticulo(id) {
+    document.getElementById('resumen-' + id).style.display = 'none';
+    document.getElementById('articulo-' + id).style.display = 'block';
+}
+
+function ocultarArticulo(id) {
+    document.getElementById('articulo-' + id).style.display = 'none';
+    document.getElementById('resumen-' + id).style.display = 'block';
+}
+</script>
+
             <!-- NOTICIA 2 - CON IMAGEN-->
             <article class="noticia fade-in">
                 <div class="noticia-imagen">
